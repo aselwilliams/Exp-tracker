@@ -1,8 +1,15 @@
-import React from 'react'
+import React,{useState} from 'react';
+import RegisterForm from './RegisterForm';
+import LoginForm from './LoginForm'
 
 const Auth = () => {
+    const [login, setLogin] = useState(true)
   return (
-    <div>Auth</div>
+    <div>
+        {login ? <LoginForm /> :
+        <RegisterForm />
+        }
+    </div>
   )
 }
 

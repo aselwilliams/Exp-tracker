@@ -5,6 +5,7 @@ const {sequelize} = require('./util/db');
 const {PORT} = process.env;
 const { User } = require('./models/user');
 const { Transaction }= require('./models/transaction');
+const {register, login} = require('./controllers/auth')
 
 
 const app = express();
@@ -22,8 +23,8 @@ app.get('/', (req, res)=> {
 })
 
 //Auth
-// app.post('/register', register);
-// app.post('/login', login);
+app.post('/register', register);
+app.post('/login', login);
 
 
 sequelize

@@ -19,19 +19,22 @@ const createToken = (username, id) => {
 module.exports = {
     register: async(req, res) => {
         try {
-            const {username, password} = req.body;
+            const {username, password,firstName, lastName,image} = req.body;
             let foundUser = await User.findOne({where: {username: username}})
             if(foundUser) {
                 res.status(400).send('Cannot create user')
             } else {
                 const salt = bcrypt.genSaltSync(10)
                 const hash = bcrypt.hashSync(password, salt)
-                const newUser = await User.create({username, hashedPass: hash})
+                const newUser = await User.create({username, hashedPass: hash,firstName, lastName,image})
                 const token = createToken(newUser.dataValues.username, newUser.dataValues.id)
                 console.log('TOKEN', token)
                 const exp = Date.now() + 1000 * 60 * 60 * 48
                 res.status(200).send({
                     username: newUser.dataValues.username,
+                    firstName,
+                    lastName,
+                    image,
                     userId: newUser.dataValues.id,
                     token,
                     exp})
