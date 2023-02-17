@@ -1,6 +1,6 @@
 const {DataTypes} = require('sequelize');
 
-const {sequelize} = require('../util/database');
+const {sequelize} = require('../util/db');
 
 module.exports = {
     Transaction: sequelize.define('transaction', {
@@ -12,7 +12,7 @@ module.exports = {
         },
         title: DataTypes.STRING,
         amount: DataTypes.INTEGER,
-        date: DataTypes.DATETIME,
+        createAt: DataTypes.DATE,
         category: DataTypes.STRING,
         description: DataTypes.STRING,
         type: DataTypes.STRING,

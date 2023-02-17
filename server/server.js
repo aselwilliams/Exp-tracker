@@ -3,6 +3,8 @@ const express = require('express');
 const cors = require('cors');
 const {sequelize} = require('./util/db');
 const {PORT} = process.env;
+const { User } = require('./models/user');
+const { Transaction }= require('./models/transaction');
 
 
 const app = express();
@@ -11,6 +13,10 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
+
+User.hasMany(Transaction);
+Transaction.belongsTo(User);
+
 app.get('/', (req, res)=> {
  res.send('Hello Aselisa')
 })
@@ -18,9 +24,6 @@ app.get('/', (req, res)=> {
 //Auth
 // app.post('/register', register);
 // app.post('/login', login);
-
-
-
 
 
 sequelize
