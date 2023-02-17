@@ -1,5 +1,5 @@
 import './App.css';
-import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import { Routes, Route} from 'react-router-dom';
 import Dashboard from './components/Dashboard';
 import Auth from './components/Auth';
 import Transactions from './components/Transactions';
@@ -10,7 +10,6 @@ import NotFound from './components/NotFound';
 function App() {
   return (
     <div className="App">
-      <Router>
       <Routes>
         <Route path='/' element={<Auth />} />
         <Route path='/dashboard' element={<Dashboard />}/>
@@ -19,7 +18,6 @@ function App() {
         <Route path='/expenditure' element={<Expenses />} />
         <Route path='*' element={<NotFound />}/>
       </Routes>
-      </Router>
     </div>
   );
 }

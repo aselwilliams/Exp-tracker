@@ -18,15 +18,12 @@
   background-repeat: no-repeat;
   width: 100vw;
   height: 100vh;
-  /* flex:1; */
- 
 }
 .form-wrapper {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-end;
-  /* flex:1; */
   opacity:1;
   border-radius: 3rem;
   background-color: white;
@@ -40,4 +37,13 @@
 }
 .auth-msg {
   color:crimson;
+}
+.btn{
+  background-color: green;
+  color:white;
+  padding:0.7rem 2rem;
+  border-radius: 5rem;
+  margin:1rem;
+  border:none;
+  font-size:1.1rem;
 }

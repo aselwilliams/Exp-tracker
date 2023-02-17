@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import InputAdornment from "@mui/material/InputAdornment";
 import TextField from "@mui/material/TextField";
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
@@ -10,13 +10,15 @@ import {Button} from 'reactstrap';
 import '../index.css';
 import {useNavigate} from 'react-router-dom';
 import axios from 'axios';
+import AuthContext from '../store/authContext';
 
 const RegisterForm = () => {
     const [message, setMessage] = useState('')
     const [display, setDisplay] = useState('none')
     const [user, setUser]=useState({firstName:'',lastName:'',username:'',password:'',image:'' })
     // const [usersGroup, setUsersGroup] = useState([]);
-    const navigate=useNavigate();
+    const navigate = useNavigate();
+    const authCtx = useContext(AuthContext)
   
 const handleChange=(e)=>{
     const name= e.target.name;
@@ -43,7 +45,7 @@ if(user.firstName && user.lastName && user.username && user.password && user.ima
       console.log("After Auth", data);
       navigateTo()
       const { token, exp, userId } = data;
-    //   authCtx.login(token, exp, userId);
+      authCtx.login(token, exp, userId);
     })
     .catch((err) => {
       console.log(err);
@@ -64,9 +66,6 @@ navigate('/login')
 }
   return (
     <div className='signUp-container bg-wrapper'>
-       {/* <div className="bg-wrapper"> */}
-            {/* <img src='https://hpid-login-ui-images.id.hp.com/production/hp-smart-extra-large-revised.png' alt='woman'/> */}
-       
         <div className="form-wrapper">
   <main className='main-form'>
     <h2 className='title'>Create an Account</h2>
