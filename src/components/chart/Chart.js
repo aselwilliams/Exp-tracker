@@ -27,7 +27,7 @@ const data = [
 const Chart = () => {
   return (
     <div className={classes.chart}>
-      <div className={classes.title}>Monthly total balance (last 12 months)</div>
+      <h3 className={classes.title}>Monthly total balance (last 12 months)</h3>
         <AreaChart
           width={730}
           height={250}
@@ -36,12 +36,12 @@ const Chart = () => {
         >
           <defs>
             <linearGradient id="expenses" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="5%" stopColor="#8884d8" stopOpacity={0.8} />
-              <stop offset="95%" stopColor="#8884d8" stopOpacity={0} />
+              <stop offset="5%" stopColor="blue" stopOpacity={0.8} />
+              <stop offset="95%" stopColor="blue" stopOpacity={0} />
             </linearGradient>
             <linearGradient id="income" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="5%" stopColor="#82ca9d" stopOpacity={0.8} />
-              <stop offset="95%" stopColor="#82ca9d" stopOpacity={0} />
+              <stop offset="5%" stopColor="yellow" stopOpacity={0.8} />
+              <stop offset="95%" stopColor="yellow" stopOpacity={0} />
             </linearGradient>
           </defs>
           <XAxis dataKey="month" />
@@ -51,14 +51,14 @@ const Chart = () => {
           <Area
             type="monotone"
             dataKey="expenses"
-            stroke="#8884d8"
+            stroke="blue"
             fillOpacity={1}
             fill="url(#expenses)"
           />
           <Area
             type="monotone"
             dataKey="income"
-            stroke="#82ca9d"
+            stroke="goldenrod"
             fillOpacity={1}
             fill="url(#income)"
           />

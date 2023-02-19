@@ -7,10 +7,10 @@
     display: flex;
 }
 .container {
-    background-color: aliceblue;
+    background-color: whitesmoke;
     flex:6;
 }
-.widgets, .charts{
+.widgets, .charts, .mixed{
     display: flex;
     padding: 20px;
     gap:20px;

@@ -5,6 +5,8 @@ import Navbar from "../navbar/Navbar";
 import Widget from "../widget/Widget";
 import Chart from "../chart/Chart";
 import Featured from "../featured/Featured";
+import BarChart from "../barChart/BarChart";
+import Calculator from "../calculator/Calculator";
 
 const Dashboard = () => {
   return (
@@ -21,6 +23,10 @@ const Dashboard = () => {
         <div className={classes.charts}>
           <Chart />
           <Featured />
+        </div>
+        <div className={classes.mixed}>
+          <BarChart />
+          <Calculator />
         </div>
       </div>
     </div>
