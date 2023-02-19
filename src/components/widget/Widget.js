@@ -21,7 +21,7 @@ const Widget = ({type}) => {
                 title:'Total Income',
                 isMoney: true,
                 link:'See income list',
-                icon: <MonetizationOnOutlinedIcon className={classes.icon} style={{color:'green',backgroundColor:'rgba(0,128,0,0.2)'}} />,
+                icon: <MonetizationOnOutlinedIcon className={classes.icon} style={{color:'green',backgroundColor:'rgba(0,128,0,0.2)', fontSize:'2.5rem'}} />,
             };
             break;
         case 'expenses':
@@ -29,7 +29,7 @@ const Widget = ({type}) => {
                 title:'Total Expenses',
                 isMoney: true,
                 link: 'View all expenses',
-                icon: <ProductionQuantityLimitsIcon className={classes.icon} style={{color:'crimson',backgroundColor:'rgba(255,0,0,0.2)'}}/>,
+                icon: <ProductionQuantityLimitsIcon className={classes.icon} style={{color:'crimson',backgroundColor:'rgba(255,0,0,0.2)',fontSize:'2.5rem'}}/>,
             };
             break;
         case 'balance':
@@ -37,15 +37,14 @@ const Widget = ({type}) => {
                 title:'Total Balance',
                 isMoney: true,
                 link: 'See all transactions',
-                icon: <BalanceOutlinedIcon className={classes.icon} style={{color:'goldenrod', backgroundColor:'rgba(218,165,32,0.2)'}} />,
+                icon: <BalanceOutlinedIcon className={classes.icon} style={{color:'goldenrod', backgroundColor:'rgba(218,165,32,0.2)',fontSize:'2.5rem'}} />,
             };
             break;
         case 'today':
             data={
                 title:'Today',
                 isMoney: false,
-                // date: new Date().now(),
-                icon: <CalendarMonthOutlinedIcon className={classes.icon} style={{color:'purple',backgroundColor:'rgba(128,0,128,0.2)'}} />,
+                icon: <CalendarMonthOutlinedIcon className={classes.icon} style={{color:'purple',backgroundColor:'rgba(128,0,128,0.2)',fontSize:'2.5rem'}} />,
             };
             break;
         default:

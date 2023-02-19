@@ -18,9 +18,9 @@ const Dashboard = () => {
           <Widget type="balance" />
           <Widget type="today" />
         </div>
-        <div className="charts">
-          <Featured />
+        <div className={classes.charts}>
           <Chart />
+          <Featured />
         </div>
       </div>
     </div>

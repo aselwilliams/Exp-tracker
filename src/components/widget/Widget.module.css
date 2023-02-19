@@ -42,7 +42,7 @@
 }
 .icon{
     font-size:26px;
-    padding: 5px;
-    border-radius:5px;
+    padding: 6px;
+    border-radius:50%;
     align-self:flex-end;
 }
