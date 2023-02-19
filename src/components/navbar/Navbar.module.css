@@ -44,6 +44,7 @@
 .counter{
     width: 15px;
     height: 15px;
+    font-size: 10px;
     background-color: red;
     border-radius: 50%;
     color: white;

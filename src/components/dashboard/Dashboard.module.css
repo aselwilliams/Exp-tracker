@@ -10,8 +10,8 @@
     background-color: aliceblue;
     flex:6;
 }
-/* header{
-    height: 4rem;
-    width: 100vw;
-    border:lightgrey 1px solid;
-} */
+.widgets{
+    display: flex;
+    padding: 20px;
+    gap:20px;
+}

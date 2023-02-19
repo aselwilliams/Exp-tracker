@@ -5,6 +5,7 @@ import ReceiptLongIcon from '@mui/icons-material/ReceiptLong';
 import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
 import ProductionQuantityLimitsIcon from '@mui/icons-material/ProductionQuantityLimits';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
+import MonetizationOnOutlinedIcon from '@mui/icons-material/MonetizationOnOutlined';
 
 const Sidebar = () => {
   return (
@@ -27,7 +28,7 @@ const Sidebar = () => {
                     Transactions
                 </li>
                 <li>
-                    <AccountBalanceIcon className={classes.icon} />
+                    <MonetizationOnOutlinedIcon className={classes.icon} />
                     Income
                     </li>
                 <li>
