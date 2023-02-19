@@ -1,6 +1,6 @@
 import './App.css';
 import { Routes, Route} from 'react-router-dom';
-import Dashboard from './components/Dashboard';
+import Dashboard from './components/dashboard/Dashboard';
 import Auth from './components/Auth';
 import Transactions from './components/Transactions';
 import Income from './components/Income';
@@ -15,7 +15,7 @@ function App() {
         <Route path='/dashboard' element={<Dashboard />}/>
         <Route path='/transactions' element={<Transactions />}/>
         <Route path='/income' element={<Income />} />
-        <Route path='/expenditure' element={<Expenses />} />
+        <Route path='/expense' element={<Expenses />} />
         <Route path='*' element={<NotFound />}/>
       </Routes>
     </div>

@@ -16,7 +16,6 @@ const RegisterForm = () => {
     const [message, setMessage] = useState('')
     const [display, setDisplay] = useState('none')
     const [user, setUser]=useState({firstName:'',lastName:'',username:'',password:'',image:'' })
-    // const [usersGroup, setUsersGroup] = useState([]);
     const navigate = useNavigate();
     const authCtx = useContext(AuthContext)
   
@@ -30,8 +29,6 @@ const handleChange=(e)=>{
 const handleSubmit=(e)=>{
 e.preventDefault();
 if(user.firstName && user.lastName && user.username && user.password && user.image){
-    // const newUser={...user, id:new Date().getTime().toString()};
-    // setUsersGroup([...usersGroup, newUser])
     const newUser = {
         firstName: user.firstName,
         lastName: user.lastName,
@@ -82,7 +79,7 @@ navigate('/login')
       <IconTextField label="First Name *" id='firstName' name='firstName' value={user.firstName} onChange={handleChange} iconEnd={<PersonOutlineIcon />} />
       <IconTextField label="Last Name *" id='lastName' name='lastName' value={user.lastName} onChange={handleChange} iconEnd={<PersonOutlineIcon />} />
       <IconTextField label="username *" id="username" name='username' value={user.username} onChange={handleChange} iconEnd={<MailOutlineIcon />} />
-      <IconTextField label="Password *" id='password' name='password' value={user.password} onChange={handleChange} iconEnd={<VpnKeyIcon />} />
+      <IconTextField label="Password *" type='password' id='password' name='password' value={user.password} onChange={handleChange} iconEnd={<VpnKeyIcon />} />
       <IconTextField label="image *" id='image' name='image' value={user.image} onChange={handleChange} iconEnd={<PhotoCameraBackIcon />} />   
     </Box>
     <Button className='btn btn-success m-3'>Register</Button>
@@ -90,11 +87,10 @@ navigate('/login')
     <p style={{display: display}} className='auth-msg'>{message}</p>
     <footer>
     <p>Already have an account?</p>
-    <p className='login-tag' onClick={navigateTo}>Login</p>
+    <p className='sec-btn' onClick={navigateTo}>Login</p>
   </footer>
     </main>
     </div>
-    {/* </div> */}
     </div>
   );
 }

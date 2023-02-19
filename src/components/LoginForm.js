@@ -16,8 +16,7 @@ const LoginForm = ({setLogin}) => {
     const [message, setMessage] = useState('')
     const [display, setDisplay] = useState('none')
     const [user, setUser]=useState({username:'',password:''})
-    // const [usersGroup, setUsersGroup] = useState([]);
-    const navigate=useNavigate();
+    const navigate = useNavigate();
     const authCtx = useContext(AuthContext);
   
 const handleChange=(e)=>{
@@ -30,8 +29,6 @@ const handleChange=(e)=>{
 const handleSubmit=(e)=>{
 e.preventDefault();
 if(user.username && user.password){
-    // const newUser={...user, id:new Date().getTime().toString()};
-    // setUsersGroup([...usersGroup, newUser])
     const newUser = {
         username: user.username,
         password: user.password,
@@ -57,7 +54,6 @@ if(user.username && user.password){
     setUser({ username:'', password:''})
 }
 
-
 const navigateTo=()=>{
 navigate('/register')
 setLogin(false)
@@ -80,18 +76,17 @@ setLogin(false)
     >
    
       <IconTextField label="username *" id="username" name='username' value={user.username} onChange={handleChange} iconEnd={<MailOutlineIcon />} />
-      <IconTextField label="Password *" id='password' name='password' value={user.password} onChange={handleChange} iconEnd={<VpnKeyIcon />} />
+      <IconTextField label="Password *"  type='password' id='password' name='password' value={user.password} onChange={handleChange} iconEnd={<VpnKeyIcon />} />
     </Box>
     <Button className='btn'>Login</Button>
     </form>
     <p style={{display: display}} className='auth-msg'>{message}</p>
     <footer>
     <p>Need a new account?</p>
-    <p className='login-tag' onClick={navigateTo}>Register</p>
+    <p className='sec-btn' onClick={navigateTo}>Register</p>
   </footer>
     </main>
     </div>
-    {/* </div> */}
     </div>
   );
 }
