@@ -7,6 +7,7 @@ import Chart from "../chart/Chart";
 import Featured from "../featured/Featured";
 import BarChart from "../barChart/BarChart";
 import Calculator from "../calculator/Calculator";
+import Carousel from '../carousel/Carousel';
 
 const Dashboard = () => {
   return (
@@ -23,6 +24,9 @@ const Dashboard = () => {
         <div className={classes.charts}>
           <Chart />
           <Featured />
+        </div>
+        <div className={classes.coins}>
+          <Carousel />
         </div>
         <div className={classes.mixed}>
           <BarChart />

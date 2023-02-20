@@ -71,6 +71,9 @@
     font-weight: 700;
     /* border:1px solid white; */
   }
+  /* .operator button:hover{
+    background-color:#f0af7d;
+  } */
   .digits {
     display: flex;
     flex-wrap: wrap;

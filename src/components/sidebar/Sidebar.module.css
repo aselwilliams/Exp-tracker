@@ -10,6 +10,7 @@
     height: 5rem;
     object-fit:cover;
     border-radius: 50%;
+    margin:20px;
 }
 .top{
     height: 10rem;
@@ -17,11 +18,11 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
+    margin:20px;
 }
 .center{
     padding-left: 20px;
-
+    margin:20px;
 }
 ul{
     list-style: none;
