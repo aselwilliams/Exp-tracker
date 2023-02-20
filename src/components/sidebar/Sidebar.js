@@ -2,10 +2,10 @@ import React from 'react';
 import classes from './Sidebar.module.css';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import ReceiptLongIcon from '@mui/icons-material/ReceiptLong';
-import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
 import ProductionQuantityLimitsIcon from '@mui/icons-material/ProductionQuantityLimits';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 import MonetizationOnOutlinedIcon from '@mui/icons-material/MonetizationOnOutlined';
+import {Link} from 'react-router-dom';
 
 const Sidebar = () => {
   return (
@@ -19,26 +19,26 @@ const Sidebar = () => {
         </div>
         <div className={classes.center}>
             <ul>
-                <li>
+                <Link className={classes.link}>
                     <DashboardIcon className={classes.icon} />
                     <span>Dashboard</span>
-                </li>
-                <li>
+                </Link>
+                <Link to='/transactions' className={classes.link}>
                     <ReceiptLongIcon className={classes.icon} />
                     Transactions
-                </li>
-                <li>
+                </Link>
+                <Link to='/income' className={classes.link}>
                     <MonetizationOnOutlinedIcon className={classes.icon} />
                     Income
-                    </li>
-                <li>
+                    </Link>
+                <Link to='/expenses' className={classes.link}>
                     <ProductionQuantityLimitsIcon className={classes.icon} />
                     Expenses 
-                </li>
-                <li>
+                </Link>
+                <Link to='/auth' className={classes.link}>
                     <ExitToAppIcon className={classes.icon} />
                     Logout
-                </li>
+                </Link>
             </ul>
         </div>
         <div className={classes.bottom} >

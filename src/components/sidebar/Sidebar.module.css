@@ -29,9 +29,11 @@ ul{
     margin: 0;
     padding: 0;
 }
-li{
+.link{
     display: flex;
     align-items: center;
+    text-decoration:none;
+    color:black;
     padding: 5px;
     cursor: pointer;
 }
@@ -41,6 +43,7 @@ li:hover{
 .icon{
     font-size:18px;
     color:#51897B;
+    margin-right:5px;
 }
 .bottom{
     display: flex;

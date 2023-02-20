@@ -1,0 +1,54 @@
+.newsWrapper{
+    padding: 10px;
+    -webkit-box-shadow:2px 4px 10px 1px rgba(0,0,0,0.47);
+    box-shadow:2px 4px 10px 1px rgba(201,201,201,0.47);
+    border-radius:10px;
+    height: auto;
+    background-color: white;
+    width: 70%;
+}
+form{
+    width: 500px;
+    margin: 10px auto;
+}
+.search{
+    width: 300px;
+    padding:0.7rem;
+    border-radius:5rem;
+}
+.btn{
+    background-color: #3a7868;
+    color:white;
+    padding:0.7rem 2rem;
+    border-radius: 5rem;
+    margin:1rem;
+    border:none;
+    font-size:1.1rem;
+    width: 22%;
+    cursor:pointer;
+  }
+  .cat{
+    margin-left:1.5rem;
+    color: darkblue;
+    font-weight:bold;
+    text-transform: capitalize;
+    letter-spacing: 0.1rem;
+  }
+  .card{
+    display: flex;
+    flex-direction:column;
+    padding:10px;
+    background-color: rgb(249, 233, 233);
+    margin:5px;
+    border-radius:10px;
+  }
+  .top, .bottom{
+    display: flex;
+    justify-content: space-between;
+    margin:4px;
+  }
+  .readMore{
+    color:darkblue;
+    font-weight:700;
+    text-decoration: none;
+  }

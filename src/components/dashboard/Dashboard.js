@@ -8,6 +8,7 @@ import Featured from "../featured/Featured";
 import BarChart from "../barChart/BarChart";
 import Calculator from "../calculator/Calculator";
 import Carousel from '../carousel/Carousel';
+import HackerNews from '../hackerNews/HackerNews';
 
 const Dashboard = () => {
   return (
@@ -31,6 +32,9 @@ const Dashboard = () => {
         <div className={classes.mixed}>
           <BarChart />
           <Calculator />
+        </div>
+        <div className={classes.news}>
+          <HackerNews />
         </div>
       </div>
     </div>
