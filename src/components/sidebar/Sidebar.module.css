@@ -1,9 +1,10 @@
 .sidebar{
-    background-color: #51897B;
+    /* background-color: #51897B; */
+    background-color: #C4D7D2;
     flex:1;
     border-right:0.5px solid lightgrey;
     min-height: 100vh;
-    background-color: #fff;
+    /* background-color: #fff; */
 }
 .profile-img{
     width: 5rem;

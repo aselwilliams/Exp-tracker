@@ -19,7 +19,7 @@ const Sidebar = () => {
         </div>
         <div className={classes.center}>
             <ul>
-                <Link className={classes.link}>
+                <Link to='/dashboard' className={classes.link}>
                     <DashboardIcon className={classes.icon} />
                     <span>Dashboard</span>
                 </Link>
