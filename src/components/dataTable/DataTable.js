@@ -72,6 +72,7 @@ const DataTable = () => {
   return (
     <div className={classes.datatable}>
       <DataGrid
+        sx={{backgroundColor:'white'}}
         rows={rows}
         columns={columns.concat(actionColumn)}
         pageSize={5}

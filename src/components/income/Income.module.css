@@ -1,0 +1,17 @@
+.income{
+    display: flex;
+    width: 100%;
+}
+.incomeWrapper{
+    flex:6;
+}
+.content{
+    display: flex;
+    width: 100%;
+}
+.formWrapper{
+    flex:1;
+}
+.incomeList{
+    flex:2;
+}

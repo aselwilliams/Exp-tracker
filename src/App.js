@@ -3,7 +3,7 @@ import { Routes, Route} from 'react-router-dom';
 import Dashboard from './components/dashboard/Dashboard';
 import Auth from './components/Auth';
 import Transactions from './components/transactions/Transactions';
-import Income from './components/Income';
+import Income from './components/income/Income';
 import Expenses from './components/Expenses';
 import NotFound from './components/NotFound';
 
