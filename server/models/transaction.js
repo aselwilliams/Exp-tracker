@@ -12,7 +12,7 @@ module.exports = {
         },
         title: DataTypes.STRING,
         amount: DataTypes.INTEGER,
-        createAt: DataTypes.DATE,
+        createdAt: DataTypes.DATE,
         category: DataTypes.STRING,
         description: DataTypes.STRING,
         type: DataTypes.STRING,

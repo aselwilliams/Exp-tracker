@@ -15,54 +15,60 @@ const Form = () => {
     type: "",
   });
 
-  const { title, amount, createdAt, category, description, type } = inputVal;
-
-  const handleInput = (name, e) => {
-    setInputVal({ ...inputVal, [name]: e.target.value });
+  const handleInput = (e) => {
+    const name = e.target.name;
+    const value = e.target.value;
+    setInputVal({ ...inputVal, [name]: value });
   };
 
+  const { title, amount, createdAt, category, description, type } = inputVal;
   const handleSubmit = (e) => {
     e.preventDefault();
-    addIncome(inputVal);
+    let body={
+        title, amount, createdAt, category, description, type
+    }
+    addIncome(body);
   };
   return (
-    <form onSubmit={handleSubmit}>
-      <div className="inputControl">
+    <form onSubmit={handleSubmit} className={classes.formContainer}>
+      <div className={classes.inputControl}>
         <input
           type="text"
-          value={title}
-          name={"title"}
+          value={inputVal.title}
+          name='title'
+          id='title'
           placeholder="Paycheck"
-          onChange={() => handleInput("title")}
+          onChange={handleInput}
         />
       </div>
-      <div className="inputControl">
+      <div className={classes.inputControl}>
         <input
           type="number"
-          value={amount}
-          name={"amount"}
+          value={inputVal.amount}
+          name="amount"
+          id='amount'
           placeholder="Amount"
-          onChange={() => handleInput("amount")}
+          onChange={handleInput}
         />
       </div>
-      <div className="inputControl">
+      <div className={classes.inputControl}>
         <DatePicker
           id="createdAt"
           placeholderText="Date"
-          selected={createdAt}
+          selected={inputVal.createdAt}
           dateFormat="MM/dd/yyyy"
           onChange={(createdAt) => {
             setInputVal({ ...inputVal, createdAt: createdAt });
           }}
         />
       </div>
-      <div className="inputControl select">
+      <div className={`${classes.inputControl} ${classes.select}`}>
         <select
           required
-          value={category}
-          name={"category"}
+          value={inputVal.category}
+          name="category"
           id="category"
-          onChange={() => handleInput("category")}
+          onChange={handleInput}
         >
           <option value="" disabled>
             Select Option
@@ -75,31 +81,36 @@ const Form = () => {
           <option value="other">Other</option>
         </select>
       </div>
-      <div className="inputControl">
-        <input
+      <div className={classes.inputControl}>
+        <textarea
           type="text"
-          value={description}
-          name={"description"}
+          value={inputVal.description}
+          name="description"
+          id='description'
           placeholder="Description"
-          onChange={() => handleInput("description")}
-        />
+          onChange={handleInput}
+          cols='30'
+          rows='5'
+        ></textarea>
       </div>
-      <div className="inputControl">
+      <div className={classes.inputControl}>
         <select
           required
-          value={type}
-          name={"type"}
+          value={inputVal.type}
+          name="type"
           id="type"
-          onChange={() => handleInput("type")}
+          onChange={handleInput}
         >
           <option value="" disabled>
             Select Option
           </option>
-          <option value="debit">Debit</option>
-          <option value="credit">Credit</option>
+          <option value="income">Income</option>
+          <option value="expense">Expense</option>
         </select>
       </div>
-      <button className={classes.btn}>Add Income</button>
+      <div className="btnWrapper">
+      <button className={classes.btn}>Add Transaction</button>
+      </div>
     </form>
   );
 };

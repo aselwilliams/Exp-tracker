@@ -12,6 +12,13 @@
 .formWrapper{
     flex:1;
 }
+.lists{
+    display: flex;
+    width: 100%;
+}
 .incomeList{
-    flex:2;
+    flex:1;
+}
+.expenseList{
+    flex:1;
 }

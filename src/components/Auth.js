@@ -3,7 +3,7 @@ import RegisterForm from './RegisterForm';
 import LoginForm from './LoginForm'
 
 const Auth = () => {
-    const [login, setLogin] = useState(true)
+    const [login, setLogin] = useState(false)
   return (
     <div>
         {login ? <LoginForm setLogin={setLogin}/> :
