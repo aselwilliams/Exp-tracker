@@ -22,17 +22,18 @@ app.use(cors());
 User.hasMany(Transaction);
 Transaction.belongsTo(User);
 
-app.get("/", (req, res) => {
-  res.send("Hello Aselisa");
-});
+// app.get("/", (req, res) => {
+//   res.send("Hello Aselisa");
+// });
 
 //Auth
 app.post("/register", register);
 app.post("/login", login);
 
+//CRUD
 app.get("/transactions/:userId", getAllTransactions)
-app.post("/transactions", addTransaction);
-app.post("/transactions/:id", deleteTransaction);
+app.post("/transactions", isAuthenticated, addTransaction);
+app.delete("/transactions/:id", deleteTransaction);
 
 sequelize
   .sync()

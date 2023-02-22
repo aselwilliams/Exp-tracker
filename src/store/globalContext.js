@@ -37,7 +37,8 @@ export const GlobalProvider = ({ children }) => {
       });
   };
   const deleteTransaction = (id) => {
-    axios.delete(`/transactions/${id}`,{
+    console.log(id,'id')
+    axios.delete(`http://localhost:4444/transactions/${id}`,{
         header:{
             authorization: token
         }
@@ -45,7 +46,7 @@ export const GlobalProvider = ({ children }) => {
         getAllTransactions()
     }).catch((err)=> {
         console.log(err)
-        setError(err.res.data.message);
+      
     })
   }
 
