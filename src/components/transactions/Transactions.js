@@ -4,6 +4,7 @@ import Sidebar from '../sidebar/Sidebar';
 import Navbar from '../navbar/Navbar';
 import DataTable from '../dataTable/DataTable';
 import { useGlobalContext } from '../../store/globalContext';
+import Header from '../Header';
 
 const Transactions = () => {
   const { getAllTransactions, list } = useGlobalContext();
@@ -34,6 +35,7 @@ const columns = [
       <Sidebar />
       <div className={classes.listWrapper}>
         <Navbar />
+        <Header title={'All Transactions'} />
         <DataTable rows={list} columns={columns}/>
       </div>
     </div>

@@ -1,5 +1,6 @@
 import React, { useState, useContext, useEffect } from "react";
 import axios from "axios";
+import AuthContext from './authContext';
 const baseURL = "http://localhost:4444";
 
 const GlobalContext = React.createContext();
@@ -9,6 +10,7 @@ export const GlobalProvider = ({ children }) => {
   const [error, setError] = useState(null);
   const [showModal, setShowModal] = useState(false);
   const userId = localStorage.getItem("userId");
+  const {token} = useContext(AuthContext)
 
   useEffect(() => {
     getAllTransactions();
@@ -16,7 +18,7 @@ export const GlobalProvider = ({ children }) => {
 
   const getAllTransactions = () => {
     axios
-      .get(`${baseURL}/get-transactions/${userId}`)
+      .get(`${baseURL}/transactions/${userId}`)
       .then((res) => {
         console.log(res.data);
         setList(res.data);
@@ -29,15 +31,27 @@ export const GlobalProvider = ({ children }) => {
   const addIncome = async (income) => {
     const body = { ...income, userId };
     const res = await axios
-      .post(`${baseURL}/add-transaction`, body)
+      .post(`${baseURL}/transactions`, body)
       .catch((err) => {
         setError(err.res.data);
       });
   };
+  const deleteTransaction = (id) => {
+    axios.delete(`/transactions/${id}`,{
+        header:{
+            authorization: token
+        }
+    }).then(()=> {
+        getAllTransactions()
+    }).catch((err)=> {
+        console.log(err)
+        setError(err.res.data.message);
+    })
+  }
 
   return (
     <GlobalContext.Provider
-      value={{ addIncome, getAllTransactions, list,showModal, setShowModal }}
+      value={{ addIncome, getAllTransactions, list,showModal, setShowModal, deleteTransaction }}
     >
       {children}
     </GlobalContext.Provider>

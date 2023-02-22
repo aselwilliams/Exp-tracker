@@ -11,6 +11,7 @@ const {
   deleteTransaction,
   getAllTransactions
 } = require("./controllers/transaction");
+const {isAuthenticated} = require('./middleware/isAuthenticated');
 
 const app = express();
 
@@ -29,9 +30,9 @@ app.get("/", (req, res) => {
 app.post("/register", register);
 app.post("/login", login);
 
-app.get("/get-transactions/:userId", getAllTransactions)
-app.post("/add-transaction", addTransaction);
-app.post("/delete-transaction", deleteTransaction);
+app.get("/transactions/:userId", getAllTransactions)
+app.post("/transactions", addTransaction);
+app.post("/transactions/:id", deleteTransaction);
 
 sequelize
   .sync()

@@ -5,6 +5,7 @@ import ReceiptLongIcon from '@mui/icons-material/ReceiptLong';
 import ProductionQuantityLimitsIcon from '@mui/icons-material/ProductionQuantityLimits';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 import MonetizationOnOutlinedIcon from '@mui/icons-material/MonetizationOnOutlined';
+import CalendarMonthOutlinedIcon from '@mui/icons-material/CalendarMonthOutlined';
 import {Link} from 'react-router-dom';
 
 const Sidebar = () => {
@@ -29,11 +30,11 @@ const Sidebar = () => {
                 </Link>
                 <Link to='/income' className={classes.link}>
                     <MonetizationOnOutlinedIcon className={classes.icon} />
-                    Income
+                    Income/Expenses
                     </Link>
-                <Link to='/expenses' className={classes.link}>
-                    <ProductionQuantityLimitsIcon className={classes.icon} />
-                    Expenses 
+                <Link to='/calendar' className={classes.link}>
+                    <CalendarMonthOutlinedIcon className={classes.icon} />
+                    Calendar 
                 </Link>
                 <Link to='/auth' className={classes.link}>
                     <ExitToAppIcon className={classes.icon} />
