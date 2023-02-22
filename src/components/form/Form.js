@@ -5,7 +5,7 @@ import classes from "./Form.module.css";
 import { useGlobalContext } from "../../store/globalContext";
 
 const Form = () => {
-  const { addIncome } = useGlobalContext();
+  const { addIncome, showModal } = useGlobalContext();
   const [inputVal, setInputVal] = useState({
     title: "",
     amount: 0,
@@ -30,7 +30,7 @@ const Form = () => {
     addIncome(body);
   };
   return (
-    <form onSubmit={handleSubmit} className={classes.formContainer}>
+    <form onSubmit={handleSubmit} className={classes.formContainer} style={{display: showModal ? 'block' : 'none'}}>
       <div className={classes.inputControl}>
         <input
           type="text"
@@ -78,6 +78,13 @@ const Form = () => {
           <option value="bitcoin">Bitcoin</option>
           <option value="bank">Bank Transfer</option>
           <option value="freelancing">Freelancing</option>
+          <option value="education">Education</option>
+          <option value="healthcare">Healthcare</option>
+          <option value="mortgage">Mortgage/Rent</option>
+          <option value="groceries">Groceries</option>
+          <option value="utilities">Utilities</option>
+          <option value="transportation">Transportation</option>
+          <option value="entertainment">Entertainment</option>
           <option value="other">Other</option>
         </select>
       </div>

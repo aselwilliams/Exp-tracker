@@ -15,10 +15,22 @@
 .lists{
     display: flex;
     width: 100%;
+    flex-direction:column;
+    gap:8rem;
 }
 .incomeList{
     flex:1;
 }
 .expenseList{
     flex:1;
+}
+.addBtn{
+    border:1px solid var(--dark);
+    color:var(--dark);
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    background-color: white;
 }
