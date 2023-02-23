@@ -44,7 +44,7 @@ export default function FetchNews() {
       <main className={classes.newsWrapper}>
         <h2 style={{letterSpacing: '0.1rem'}}>Hacker News</h2>
         {isLoading ? (
-          <div className="spinner"></div>
+          <div className="spinner">Loading...</div>
         ) : (
           <>
             {/* Search form */}

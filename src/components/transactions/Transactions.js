@@ -15,7 +15,7 @@ const columns = [
   { field: "id", headerName: "ID", width: 70 },
   { field: "title", headerName: "Title", width: 150 },
   { field: "amount", headerName: "Amount", width: 90 },
-  {field:"createdAt", headerName: "Date", width:180},
+  {field:"t_date", headerName: "Date", width:180},
   { field: "category", headerName: "Category", width: 150 },
   { field: "description", headerName: "Description", width: 200 },
   {

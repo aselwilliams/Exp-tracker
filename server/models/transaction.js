@@ -12,10 +12,14 @@ module.exports = {
         },
         title: DataTypes.STRING,
         amount: DataTypes.INTEGER,
-        createdAt: DataTypes.DATE,
         category: DataTypes.STRING,
         description: DataTypes.STRING,
         type: DataTypes.STRING,
-
+        t_date: DataTypes.DATE,
+    },
+    {
+        createdAt:'created_at',
+        updatedAt:'updated_at'
     })
 }
+// createdAt: DataTypes.DATE,

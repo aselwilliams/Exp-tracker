@@ -9,24 +9,13 @@ import { columns } from "../transactions/Transactions";
 import AddIcon from '@mui/icons-material/Add';
 
 const Income = () => {
-  // const [incomeList, setIncomeList] = useState([]);
-  // const [expenseList, setExpenseList] = useState([]);
-
   const { list, showModal, setShowModal, incomeList, expenseList} = useGlobalContext();
-  // useEffect(() => {
-  //   const listCopy = list.map((el) => ({ ...el }));
-  
-  //   const allIncome = listCopy.filter((item) => item.type === "income");
-  //   setIncomeList(allIncome);
-  //   const allExpenses = listCopy.filter((item) => item.type === "expense");
-  //   setExpenseList(allExpenses);
-  // }, [list]);
 
   const columns = [
     { field: "id", headerName: "ID", width: 70 },
     { field: "title", headerName: "Title", width: 150 },
     { field: "amount", headerName: "Amount", width: 90 },
-    {field:"createdAt", headerName: "Date", width:180},
+    {field:"t_date", headerName: "Date", width:180},
     { field: "category", headerName: "Category", width: 150 },
     { field: "description", headerName: "Description", width: 200 },
     {
@@ -41,8 +30,6 @@ const Income = () => {
     },
   ];
 
-  // console.log(incomeList, "all income");
-  // console.log(expenseList, "all expense");
   return (
     <div className={classes.income}>
       <Sidebar />

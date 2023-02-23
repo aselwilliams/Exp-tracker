@@ -2,7 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const { sequelize } = require("./util/db");
-const { PORT } = process.env;
+const { SERVER_PORT } = process.env;
 const { User } = require("./models/user");
 const { Transaction } = require("./models/transaction");
 const { register, login } = require("./controllers/auth");
@@ -38,8 +38,8 @@ app.delete("/transactions/:id", deleteTransaction);
 sequelize
   .sync()
   .then(() => {
-    app.listen(PORT, () => {
-      console.log("Successfully connected db, server running to port:", PORT);
+    app.listen(SERVER_PORT, () => {
+      console.log("Successfully connected db, server running to port:", SERVER_PORT);
     });
   })
   .catch((err) => console.log(err));

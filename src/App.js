@@ -8,10 +8,11 @@ import Calendar from "./components/Calendar";
 import NotFound from "./components/NotFound";
 import LoginForm from "./components/LoginForm";
 import RegisterForm from "./components/RegisterForm";
+import "./style/dark.css";
 
 function App() {
   return (
-    <div className="App">
+    <div className="App dark">
       <Routes>
         <Route path="/" element={<Auth />} />
         <Route path="/register" element={<RegisterForm />} />

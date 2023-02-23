@@ -9,7 +9,7 @@ const Form = () => {
   const [inputVal, setInputVal] = useState({
     title: "",
     amount: 0,
-    createdAt: "",
+    t_date: "",
     category: "",
     description: "",
     type: "",
@@ -21,11 +21,11 @@ const Form = () => {
     setInputVal({ ...inputVal, [name]: value });
   };
 
-  const { title, amount, createdAt, category, description, type } = inputVal;
+  const { title, amount, t_date, category, description, type } = inputVal;
   const handleSubmit = (e) => {
     e.preventDefault();
     let body={
-        title, amount, createdAt, category, description, type
+        title, amount, t_date, category, description, type
     }
     addTransaction(body);
   };
@@ -53,12 +53,12 @@ const Form = () => {
       </div>
       <div className={classes.inputControl}>
         <DatePicker
-          id="createdAt"
+          id="t_date"
           placeholderText="Date"
-          selected={inputVal.createdAt}
-          dateFormat="MM/dd/yyyy"
-          onChange={(createdAt) => {
-            setInputVal({ ...inputVal, createdAt: createdAt });
+          selected={inputVal.t_date}
+          dateFormat="yyyy-MM-dd"
+          onChange={(t_date) => {
+            setInputVal({ ...inputVal, t_date: t_date });
           }}
         />
       </div>

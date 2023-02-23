@@ -9,6 +9,7 @@ import {
   CartesianGrid,
   Tooltip,
 } from "recharts";
+import validateTransactions from './index'
 
 const data = [
   { month: "January", income: 1300, expenses:2900 },
@@ -25,15 +26,38 @@ const data = [
   { month: "December", income: 3900,expenses:1800 },
 ];
 
+let obj={'1':'January',
+            '2':'Febuary',
+            '3':'March',
+            '4':'April',
+            '5':'May',
+            '6':'June',
+            '7':'July',
+            '8':'August',
+            '9':'September',
+            '10':'October',
+            '11':'November',
+            '12':'December',
+        }
+let arr = new Array(12).fill({month:'',income:0,expenses:0}).map((el,i)=>{
+    return {...el,
+      month:obj[i+1]
+    }
+  })
 const Chart = () => {
     const {list, incomeList, expenseList}= useGlobalContext();
+    console.log(list,'list')
+   
+validateTransactions('income',arr,incomeList)
+const dataList=validateTransactions('expenses',arr,expenseList)
+ console.log(arr,'testData')
   return (
     <div className={classes.chart}>
       <h3 className={classes.title}>Monthly total balance (last 12 months)</h3>
         <AreaChart
           width={730}
           height={250}
-          data={data}
+          data={dataList}
           margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
         >
           <defs>
