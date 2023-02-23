@@ -9,19 +9,18 @@ import { columns } from "../transactions/Transactions";
 import AddIcon from '@mui/icons-material/Add';
 
 const Income = () => {
-  const [incomeList, setIncomeList] = useState([]);
-  const [expenseList, setExpenseList] = useState([]);
-  // const [showModal, setShowModal] = useState(false);
+  // const [incomeList, setIncomeList] = useState([]);
+  // const [expenseList, setExpenseList] = useState([]);
 
-  const { list, showModal, setShowModal} = useGlobalContext();
-  useEffect(() => {
-    const listCopy = list.map((el) => ({ ...el }));
-    // console.log(listCopy, 'copy')
-    const allIncome = listCopy.filter((item) => item.type === "income");
-    setIncomeList(allIncome);
-    const allExpenses = listCopy.filter((item) => item.type === "expense");
-    setExpenseList(allExpenses);
-  }, [list]);
+  const { list, showModal, setShowModal, incomeList, expenseList} = useGlobalContext();
+  // useEffect(() => {
+  //   const listCopy = list.map((el) => ({ ...el }));
+  
+  //   const allIncome = listCopy.filter((item) => item.type === "income");
+  //   setIncomeList(allIncome);
+  //   const allExpenses = listCopy.filter((item) => item.type === "expense");
+  //   setExpenseList(allExpenses);
+  // }, [list]);
 
   const columns = [
     { field: "id", headerName: "ID", width: 70 },
@@ -42,8 +41,8 @@ const Income = () => {
     },
   ];
 
-  console.log(incomeList, "all income");
-  console.log(expenseList, "all expense");
+  // console.log(incomeList, "all income");
+  // console.log(expenseList, "all expense");
   return (
     <div className={classes.income}>
       <Sidebar />

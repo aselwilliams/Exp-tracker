@@ -1,5 +1,6 @@
 import classes from "./Chart.module.css";
 import React from "react";
+import { useGlobalContext } from "../../store/globalContext";
 import {
   AreaChart,
   Area,
@@ -25,6 +26,7 @@ const data = [
 ];
 
 const Chart = () => {
+    const {list, incomeList, expenseList}= useGlobalContext();
   return (
     <div className={classes.chart}>
       <h3 className={classes.title}>Monthly total balance (last 12 months)</h3>

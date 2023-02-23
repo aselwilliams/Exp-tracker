@@ -32,7 +32,7 @@ app.post("/login", login);
 
 //CRUD
 app.get("/transactions/:userId", getAllTransactions)
-app.post("/transactions", isAuthenticated, addTransaction);
+app.post("/transactions", addTransaction);
 app.delete("/transactions/:id", deleteTransaction);
 
 sequelize

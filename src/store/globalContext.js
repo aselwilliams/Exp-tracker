@@ -9,6 +9,18 @@ export const GlobalProvider = ({ children }) => {
   const [list, setList] = useState([]);
   const [error, setError] = useState(null);
   const [showModal, setShowModal] = useState(false);
+  const [incomeList, setIncomeList] = useState([]);
+  const [expenseList, setExpenseList] = useState([]);
+
+  useEffect(() => {
+    const listCopy = list.map((el) => ({ ...el }));
+  
+    const allIncome = listCopy.filter((item) => item.type === "income");
+    setIncomeList(allIncome);
+    const allExpenses = listCopy.filter((item) => item.type === "expense");
+    setExpenseList(allExpenses);
+  }, [list]);
+
   const userId = localStorage.getItem("userId");
   const {token} = useContext(AuthContext)
 
@@ -28,7 +40,7 @@ export const GlobalProvider = ({ children }) => {
       });
   };
 
-  const addIncome = async (income) => {
+  const addTransaction = async (income) => {
     const body = { ...income, userId };
     const res = await axios
       .post(`${baseURL}/transactions`, body)
@@ -52,7 +64,7 @@ export const GlobalProvider = ({ children }) => {
 
   return (
     <GlobalContext.Provider
-      value={{ addIncome, getAllTransactions, list,showModal, setShowModal, deleteTransaction }}
+      value={{ addTransaction, getAllTransactions, list, showModal, setShowModal, deleteTransaction, incomeList, expenseList }}
     >
       {children}
     </GlobalContext.Provider>
