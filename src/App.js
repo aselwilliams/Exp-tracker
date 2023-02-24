@@ -9,10 +9,12 @@ import NotFound from "./components/NotFound";
 import LoginForm from "./components/LoginForm";
 import RegisterForm from "./components/RegisterForm";
 import "./style/dark.css";
+import { useGlobalContext } from "./store/globalContext";
 
 function App() {
+  const {darkMode} = useGlobalContext()
   return (
-    <div className="App dark">
+    <div className={darkMode ? "App dark" : 'App light'}>
       <Routes>
         <Route path="/" element={<Auth />} />
         <Route path="/register" element={<RegisterForm />} />

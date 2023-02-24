@@ -11,6 +11,7 @@ export const GlobalProvider = ({ children }) => {
   const [showModal, setShowModal] = useState(false);
   const [incomeList, setIncomeList] = useState([]);
   const [expenseList, setExpenseList] = useState([]);
+  const [darkMode, setDarkMode] = useState(false)
 
   useEffect(() => {
     const listCopy = list.map((el) => ({ ...el }));
@@ -64,7 +65,7 @@ export const GlobalProvider = ({ children }) => {
 
   return (
     <GlobalContext.Provider
-      value={{ addTransaction, getAllTransactions, list, showModal, setShowModal, deleteTransaction, incomeList, expenseList }}
+      value={{ addTransaction, getAllTransactions, list, showModal, setShowModal, deleteTransaction, incomeList, expenseList, darkMode, setDarkMode }}
     >
       {children}
     </GlobalContext.Provider>

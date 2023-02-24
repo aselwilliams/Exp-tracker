@@ -66,8 +66,8 @@ const LoginForm = ({ setLogin }) => {
         .post("http://localhost:4444/login", values)
         .then(({ data }) => {
           console.log("After Auth login", data);
-          const { token, exp, userId } = data;
-          authCtx.login(token, exp, userId);
+          const { token, exp, userId, firstName, lastName, username, image } = data;
+          authCtx.login(token, exp, userId,firstName, lastName, username, image);
           navigate("/dashboard");
         })
         .catch((err) => {

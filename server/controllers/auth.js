@@ -59,7 +59,10 @@ module.exports = {
                             username: foundUser.dataValues.username,
                             userId: foundUser.dataValues.id,
                             token,
-                            exp
+                            exp,
+                            firstName:foundUser.dataValues.firstName,
+                            lastName:foundUser.dataValues.lastName,
+                            image:foundUser.dataValues.image,
                         })
                     } else {
                         res.status(400).send('Cannot log in')

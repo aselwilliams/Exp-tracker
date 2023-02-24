@@ -5,8 +5,11 @@ import LanguageOutlinedIcon from '@mui/icons-material/LanguageOutlined';
 import DarkModeOutlinedIcon from '@mui/icons-material/DarkModeOutlined';
 import ChatBubbleOutlineOutlinedIcon from '@mui/icons-material/ChatBubbleOutlineOutlined';
 import NotificationsNoneOutlinedIcon from '@mui/icons-material/NotificationsNoneOutlined';
+import LightModeIcon from '@mui/icons-material/LightMode';
+import {useGlobalContext} from '../../store/globalContext';
 
 const Navbar = () => {
+    const {darkMode, setDarkMode} =useGlobalContext()
   return (
     <div className={classes.navbar}>
         <div className={classes.wrapper}>
@@ -15,12 +18,13 @@ const Navbar = () => {
                 <SearchOutlinedIcon />
             </div>
             <div className={classes.items} >
-                <div className={classes.item}>
+                {/* <div className={classes.item}>
                     <LanguageOutlinedIcon className={classes.icon}/>
                     English
-                </div>
-                <div className={classes.item}>
-                    <DarkModeOutlinedIcon className={classes.icon}/>
+                </div> */}
+                <div className={classes.item} onClick={setDarkMode(!darkMode)}>
+                    {darkMode ? <DarkModeOutlinedIcon className={classes.icon}/> :
+                    <LightModeIcon className={classes.icon}/>}
                 </div>
                 <div className={classes.item}>
                     <NotificationsNoneOutlinedIcon className={classes.icon}/>

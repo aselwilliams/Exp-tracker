@@ -104,7 +104,7 @@ const RegisterForm = () => {
   });
 
   const navigateTo = () => {
-    navigate("/login");
+    navigate("/dashboard");
   };
   return (
     <div className="signUp-container bg-wrapper">

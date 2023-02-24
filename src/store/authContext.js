@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, createContext } from 'react'
+import { useState, useEffect, useCallback, createContext } from 'react';
 
 let logoutTimer
 
@@ -37,6 +37,7 @@ const getLocalData = () => {
 export const AuthContextProvider = (props) => {
   const localData = getLocalData()
   
+
   let initialToken
   if (localData) {
     initialToken = localData.token
@@ -44,24 +45,40 @@ export const AuthContextProvider = (props) => {
 
   const [token, setToken] = useState(initialToken)
   const [userId, setUserId] = useState(null)
-
+  const [firstName, setFirstName] = useState('')
+  const [lastName, setLastName] = useState('')
+  const [username, setUsername] = useState('')
+  const [image, setImage] = useState('')
 
   const logout = useCallback(() => {
     setToken(null)
     setUserId(null)
     localStorage.removeItem('token')
-    localStorage.removeItem('exp')
+    localStorage.removeItem('expTime')
     localStorage.removeItem('userId')
+    localStorage.removeItem('username')
+    localStorage.removeItem('firstName')
+    localStorage.removeItem('lastName')
+    localStorage.removeItem('image')
 
     if(logoutTimer){
       console.log('logout')
       clearTimeout(logoutTimer)
     }
+    
   }, [])
 
-  const login = (token, expTime, userId) => {
+  const login = (token, expTime, userId,firstName, lastName, username, image) => {
+    setFirstName(firstName);
+    setLastName(lastName);
+    setUsername(username);
+    setImage(image);
     setToken(token);
     setUserId(userId)
+    localStorage.setItem('username', username)
+    localStorage.setItem('firstName', firstName)
+    localStorage.setItem('lastName',lastName)
+    localStorage.setItem('image', image)
     localStorage.setItem('token', token)
     localStorage.setItem('expTime', expTime)
     localStorage.setItem('userId', JSON.stringify(userId))
@@ -82,7 +99,11 @@ export const AuthContextProvider = (props) => {
     token,
     login,
     logout, 
-    userId
+    userId,
+    firstName,
+    lastName, 
+    username, 
+    image
   }
 
   return (

@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useEffect} from "react";
 import classes from "./Dashboard.module.css";
 import Sidebar from "../sidebar/Sidebar";
 import Navbar from "../navbar/Navbar";
@@ -9,8 +9,13 @@ import BarChart from "../barChart/BarChart";
 import Calculator from "../calculator/Calculator";
 import Carousel from '../carousel/Carousel';
 import HackerNews from '../hackerNews/HackerNews';
+import {useGlobalContext} from '../../store/globalContext'
 
 const Dashboard = () => {
+  const { getAllTransactions } = useGlobalContext();
+  useEffect(()=> {
+   getAllTransactions()
+  },[])
   return (
     <div className={classes.dashboard}>
       <Sidebar />
