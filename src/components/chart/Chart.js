@@ -11,20 +11,20 @@ import {
 } from "recharts";
 import validateTransactions from './index'
 
-const data = [
-  { month: "January", income: 1300, expenses:2900 },
-  { month: "February", income: 1800, expenses:600 },
-  { month: "March", income: 2300, expenses:900 },
-  { month: "April", income: 6300, expenses:2300 },
-  { month: "May", income: 5800, expenses:3100 },
-  { month: "June", income: 4900, expenses:2700 },
-  { month: "July", income: 5500, expenses:1900 },
-  { month: "August", income: 2300, expenses:900 },
-  { month: "September", income: 3700, expenses:800 },
-  { month: "October", income: 5600,expenses:2400 },
-  { month: "November", income: 4400, expenses:1400 },
-  { month: "December", income: 3900,expenses:1800 },
-];
+// const data = [
+//   { month: "January", income: 1300, expenses:2900 },
+//   { month: "February", income: 1800, expenses:600 },
+//   { month: "March", income: 2300, expenses:900 },
+//   { month: "April", income: 6300, expenses:2300 },
+//   { month: "May", income: 5800, expenses:3100 },
+//   { month: "June", income: 4900, expenses:2700 },
+//   { month: "July", income: 5500, expenses:1900 },
+//   { month: "August", income: 2300, expenses:900 },
+//   { month: "September", income: 3700, expenses:800 },
+//   { month: "October", income: 5600,expenses:2400 },
+//   { month: "November", income: 4400, expenses:1400 },
+//   { month: "December", income: 3900,expenses:1800 },
+// ];
 
 let obj={'1':'January',
             '2':'Febuary',

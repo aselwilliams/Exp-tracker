@@ -1,10 +1,8 @@
 .sidebar{
-    /* background-color: #51897B; */
-    background-color: #C4D7D2;
+    /* background-color: #C4D7D2; */
     flex:1;
     border-right:0.5px solid lightgrey;
     min-height: 100vh;
-    /* background-color: #fff; */
 }
 .profile-img{
     width: 5rem;
@@ -34,7 +32,8 @@ ul{
     display: flex;
     align-items: center;
     text-decoration:none;
-    color:black;
+    /* color:#51897B; */
+    color:grey;
     padding: 5px;
     cursor: pointer;
 }

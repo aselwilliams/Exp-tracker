@@ -4,8 +4,8 @@
     box-shadow:2px 4px 10px 1px rgba(201,201,201,0.47);
     border-radius:10px;
     height: auto;
-    background-color: white;
-    width: 70%;
+    /* background-color: white; */
+    width: 100%;
 }
 form{
     width: 500px;
@@ -29,7 +29,6 @@ form{
   }
   .cat{
     margin-left:1.5rem;
-    color: darkblue;
     font-weight:bold;
     text-transform: capitalize;
     letter-spacing: 0.1rem;
@@ -41,6 +40,7 @@ form{
     background-color: rgb(249, 233, 233);
     margin:5px;
     border-radius:10px;
+    color:black;
   }
   .top, .bottom{
     display: flex;

@@ -48,11 +48,11 @@ const Calendar = () => {
       <Sidebar />
       <section style={{ flex: "6" }}>
         <Navbar />
-        <Box m="20px" backgroundColor='white' p='20px' borderRadius='20px'>
+        <Box m="20px" p='20px' borderRadius='20px'>
           <Header title="CALENDAR" subtitle="Full Calendar Interactive Page"/>
           <Box display="flex" justifyContent="space-between" marginTop='1.5rem'>
             {/* Events start */}
-            <Box flex="1 1 20%" backgroundColor='var(--dark)' p='15px' borderRadius='4px'>
+            <Box flex="1 1 20%" backgroundColor='var(--dark)' p='15px' borderRadius='4px' color='black'>
                 <Typography variant='h5' color='white'>Events</Typography>
                 <List>
                     {currentEvents.map((event)=> (
