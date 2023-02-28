@@ -50,20 +50,3 @@ li:hover{
     align-items: center;
     margin:10px;
 }
-/* .colorOption{
-    width: 20px;
-    height: 20px;
-    border-radius:5px;
-    border:1px solid #51897B;
-    cursor:pointer;
-    margin: 5px;
-}
-.colorOption:nth-child(1){
-    background-color: whitesmoke;
-}
-.colorOption:nth-child(2){
-    background-color: #333;
-}
-.colorOption:nth-child(3){
-    background-color: darkblue;
-} */

@@ -9,6 +9,7 @@
     width:100vw;
 }
 .container {
+    width: calc(100vw/7*6);
     /* background-color: whitesmoke; */
     flex:6;
 }

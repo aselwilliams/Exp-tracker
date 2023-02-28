@@ -10,7 +10,7 @@ import AuthContext from '../../store/authContext';
 
 const Sidebar = () => {
     const { logout} = useContext(AuthContext)
-    // console.log(firstName, 'firstName')
+  
     let username=localStorage.getItem('username')
     let firstName=localStorage.getItem('firstName')
     let lastName=localStorage.getItem('lastName')
