@@ -5,7 +5,7 @@ import classes from "./Form.module.css";
 import { useGlobalContext } from "../../store/globalContext";
 
 const Form = () => {
-  const { addTransaction, showModal } = useGlobalContext();
+  const { addTransaction, showModal, setShowModal } = useGlobalContext();
   const [inputVal, setInputVal] = useState({
     title: "",
     amount: 0,
@@ -28,9 +28,19 @@ const Form = () => {
         title, amount, t_date, category, description, type
     }
     addTransaction(body);
+    
+    setInputVal({
+        title: "",
+        amount: 0,
+        t_date: "",
+        category: "",
+        description: "",
+        type: "",
+    })
   };
   return (
     <form onSubmit={handleSubmit} className={classes.formContainer} style={{display: showModal ? 'block' : 'none'}}>
+        <span className={classes.close} onClick={()=>setShowModal(false)}>X</span>
       <div className={classes.inputControl}>
         <input
           type="text"

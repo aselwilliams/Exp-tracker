@@ -4,9 +4,12 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  text-align: center;
 }
 html {
   font-family: "Roboto", sans-serif;
+  width: 100vw;
+  height: 100vh;
 }
 
 /* registerForm starts */
@@ -14,14 +17,20 @@ html {
   display: flex;
   width: 100vw;
   height: 100vh;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
+  /* align-items: center; */
+  /* flex-wrap: wrap; */
 }
 .bg-wrapper {
-  background-image: url("https://hpid-login-ui-images.id.hp.com/production/hp-smart-extra-large-revised.png");
+  /* background-image: url("https://hpid-login-ui-images.id.hp.com/production/hp-smart-extra-large-revised.png"); */
+  /* background-image: url('https://leverageedublog.s3.ap-south-1.amazonaws.com/blog/wp-content/uploads/2019/10/23165511/Accountant-Courses-800x500.png'); */
+  background-image:url('https://www.insureon.com/-/jssmedia/industry-and-professions/imagery/accounting-and-finance/accountants-and-auditors/illustration_accountant-and-auditor.png?h=300&iar=0&w=456&rev=a1e8d1299d0e4886856110c244ecd169');
+
+  background-image: linear-gradient( 63.1deg,  rgba(5,23,111,1) 16.4%, rgba(24,95,240,1) 64.5% );
   background-position: cover;
   background-repeat: no-repeat;
+  object-fit: cover;
   width: 100vw;
   height: 100vh;
 }
@@ -29,16 +38,17 @@ html {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-end;
+  align-items: center;
   opacity: 1;
   border-radius: 3rem;
   background-color: white;
   width: 450px;
-  height: 550px;
+  height: 670px;
+  padding:2rem 1rem;
 }
 
 .title {
-  margin-bottom: 2rem;
+  margin: 1rem;
 }
 .auth-msg {
   color: crimson;
@@ -63,4 +73,15 @@ html {
   width: 40%;
   margin: 1rem auto;
   cursor: pointer;
+}
+#dark{
+  background-color:#222;
+  color:#fff;
+}
+#light{
+  background-color: #fff;
+  color:black;
+}
+.datagrid{
+  color:#efefef;
 }

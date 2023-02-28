@@ -9,7 +9,9 @@ const { register, login } = require("./controllers/auth");
 const {
   addTransaction,
   deleteTransaction,
-  getAllTransactions
+  getAllTransactions,
+  getAreaChartData,
+  getBarChartData
 } = require("./controllers/transaction");
 const {isAuthenticated} = require('./middleware/isAuthenticated');
 
@@ -34,6 +36,10 @@ app.post("/login", login);
 app.get("/transactions/:userId", getAllTransactions)
 app.post("/transactions", addTransaction);
 app.delete("/transactions/:id", deleteTransaction);
+
+//chart data
+app.get('/areachart/:userId', getAreaChartData);
+app.get('/barchart/:userId', getBarChartData);
 
 sequelize
   .sync()

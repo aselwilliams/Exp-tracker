@@ -11,6 +11,7 @@ let daysObj = {
   
   let end = new Date().getDate() + 1
   let start = new Date().getDate() - 6
+  
   const generateBarChartData=(list, Arr, label)=>{
     for (let i = 0; i < Arr.length; i++) {
         let current_day = Arr[i].name

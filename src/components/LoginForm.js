@@ -86,6 +86,7 @@ const LoginForm = ({ setLogin }) => {
   return (
     <div className="signUp-container bg-wrapper">
       <div className="form-wrapper">
+        <img src="https://www.insureon.com/-/jssmedia/industry-and-professions/imagery/accounting-and-finance/accountants-and-auditors/illustration_accountant-and-auditor.png?h=300&iar=0&w=456&rev=a1e8d1299d0e4886856110c244ecd169" alt="accountant" />
         <main className="main-form">
           <h2 className="title">Please Log In</h2>
           <form onSubmit={formik.handleSubmit}>
@@ -96,6 +97,7 @@ const LoginForm = ({ setLogin }) => {
                 flexDirection: "column",
                 gap: "1rem",
                 width: "400px",
+                marginLeft:'3rem'
               }}
             >
               <IconTextField

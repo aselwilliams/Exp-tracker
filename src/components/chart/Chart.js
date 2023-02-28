@@ -1,5 +1,5 @@
 import classes from "./Chart.module.css";
-import React from "react";
+import React,{useState, useEffect} from "react";
 import { useGlobalContext } from "../../store/globalContext";
 import {
   AreaChart,
@@ -9,7 +9,9 @@ import {
   CartesianGrid,
   Tooltip,
 } from "recharts";
-import validateTransactions from './index'
+// import validateTransactions from './index';
+import axios from 'axios'
+
 
 // const data = [
 //   { month: "January", income: 1300, expenses:2900 },
@@ -45,11 +47,23 @@ let arr = new Array(12).fill({month:'',income:0,expenses:0}).map((el,i)=>{
     }
   })
 const Chart = () => {
-    const {list, incomeList, expenseList}= useGlobalContext();
-    console.log(list,'list')
-   
-validateTransactions('income',arr,incomeList)
-const dataList=validateTransactions('expenses',arr,expenseList)
+    const userId= localStorage.getItem('userId')
+    const[areaChart, setAreaChart]= useState([])
+
+
+    const getAreaChartData=()=> {
+      axios
+      .get(`http://localhost:4444/areachart/${userId}`)
+      .then((res)=> {
+          console.log(res.data, 'AREA CHART')
+          setAreaChart(res.data)
+      }).catch((err)=> console.log(err))
+    }
+   useEffect(()=> {
+    getAreaChartData()
+   },[])
+// validateTransactions('income',arr,incomeList)
+// validateTransactions('expenses',arr,expenseList)
  console.log(arr,'testData')
   return (
     <div className={classes.chart}>
@@ -57,7 +71,7 @@ const dataList=validateTransactions('expenses',arr,expenseList)
         <AreaChart
           width={730}
           height={250}
-          data={dataList}
+          data={areaChart}
           margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
         >
           <defs>

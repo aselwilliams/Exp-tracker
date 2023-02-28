@@ -8,9 +8,9 @@ import Header from '../Header';
 
 const Transactions = () => {
   const { getAllTransactions, list } = useGlobalContext();
-  useEffect(()=> {
-   getAllTransactions()
-  },[])
+  // useEffect(()=> {
+  //  getAllTransactions()
+  // },[])
 const columns = [
   { field: "id", headerName: "ID", width: 70 },
   { field: "title", headerName: "Title", width: 150 },

@@ -18,13 +18,10 @@ const Navbar = () => {
                 <SearchOutlinedIcon />
             </div>
             <div className={classes.items} >
-                {/* <div className={classes.item}>
-                    <LanguageOutlinedIcon className={classes.icon}/>
-                    English
-                </div> */}
-                <div className={classes.item} onClick={setDarkMode(!darkMode)}>
-                    {darkMode ? <DarkModeOutlinedIcon className={classes.icon}/> :
-                    <LightModeIcon className={classes.icon}/>}
+            
+                <div className={classes.item} onClick={()=>setDarkMode(!darkMode)}>
+                    {darkMode ? <LightModeIcon className={classes.icon}/> : <DarkModeOutlinedIcon className={classes.icon}/>
+                    }
                 </div>
                 <div className={classes.item}>
                     <NotificationsNoneOutlinedIcon className={classes.icon}/>

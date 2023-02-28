@@ -49,11 +49,6 @@ const Sidebar = () => {
                 </Link>
             </ul>
         </div>
-        {/* <div className={classes.bottom} >
-            <div className={classes.colorOption} ></div>
-            <div className={classes.colorOption} ></div>
-            <div className={classes.colorOption} ></div>
-        </div> */}
     </div>
   )
 }

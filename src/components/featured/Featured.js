@@ -73,7 +73,7 @@ const Featured = () => {
         >
           <RadialBar
             minAngle={15}
-            label={{ position: "insideStart", fill: "#fff" }}
+            label={{ position: "insideStart", fill: "black" }}
             background
             clockWise
             dataKey="uv"

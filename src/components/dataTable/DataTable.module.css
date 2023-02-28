@@ -32,3 +32,15 @@
   .deleteBtn{
     background-color: crimson;
   }
+
+ .dark{
+    background-color:#222;
+    color:#fff;
+}
+.light{
+    background-color: #fff;
+    color:black;
+}
+.datagrid{
+    color:grey;
+}

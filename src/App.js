@@ -10,11 +10,14 @@ import LoginForm from "./components/LoginForm";
 import RegisterForm from "./components/RegisterForm";
 import "./style/dark.css";
 import { useGlobalContext } from "./store/globalContext";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
 
 function App() {
   const {darkMode} = useGlobalContext()
   return (
     <div className={darkMode ? "App dark" : 'App light'}>
+      <ToastContainer />
       <Routes>
         <Route path="/" element={<Auth />} />
         <Route path="/register" element={<RegisterForm />} />

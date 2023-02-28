@@ -104,7 +104,7 @@ const RegisterForm = () => {
   });
 
   const navigateTo = () => {
-    navigate("/dashboard");
+    navigate("/login");
   };
   return (
     <div className="signUp-container bg-wrapper">
@@ -119,6 +119,7 @@ const RegisterForm = () => {
                 flexDirection: "column",
                 gap: "1rem",
                 width: "400px",
+                marginLeft:'3rem'
               }}
             >
               <IconTextField

@@ -15,12 +15,17 @@ import {
 import Sidebar from "./sidebar/Sidebar";
 import Navbar from "./navbar/Navbar";
 import Header from "./Header";
+import CalendarModal from './CalendarModal';
+import { useGlobalContext } from "../store/globalContext";
 
 const Calendar = () => {
   const [currentEvents, setCurrentEvents] = useState([]);
+  const {open, setOpen} = useGlobalContext();
+  const [title, setTitle] = useState('')
 
   const handleDateClick = (selected) => {
     const title = prompt("Please enter a new title for your event");
+    setOpen(true)
     const calendarApi = selected.view.calendar;
     calendarApi.unselect();
 
@@ -33,6 +38,8 @@ const Calendar = () => {
         allDay: selected.allDay,
       });
     }
+    calendarApi.render();
+
   };
   const handleEventClick = (selected) => {
     if (
@@ -49,6 +56,7 @@ const Calendar = () => {
       <section style={{ flex: "6" }}>
         <Navbar />
         <Box m="20px" p='20px' borderRadius='20px'>
+            {/* <CalendarModal title={title} setTitle={setTitle} handleDateClick={handleDateClick}/> */}
           <Header title="CALENDAR" subtitle="Full Calendar Interactive Page"/>
           <Box display="flex" justifyContent="space-between" marginTop='1.5rem'>
             {/* Events start */}

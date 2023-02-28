@@ -62,6 +62,15 @@ select::placeholder{
     0 2.1px 2.1px rgba(128, 128, 128, 0.195),
     0 4.4px 4.4px rgba(128, 128, 128, 0.241),
     0 12px 12px rgba(128, 128, 128, 0.35);
+    position:relative;
+}
+.close{
+    position:absolute;
+    top:10px;
+    right:10px;
+    font-weight:700;
+    border:1px solid white;
+    padding:3px 6px;
 }
   h1 {
     margin: 0 0 24px 0;
@@ -77,3 +86,8 @@ select::placeholder{
     height: 50px;
     background: rgba(0, 0, 0, 0.8);
   }
+  textarea::placeholder {
+    color:grey;
+    font-family: Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  }
+ 

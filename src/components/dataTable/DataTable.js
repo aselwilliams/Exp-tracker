@@ -4,7 +4,7 @@ import { DataGrid } from "@mui/x-data-grid";
 import {useGlobalContext} from '../../store/globalContext'
 
 const DataTable = ({rows, columns}) => {
-    const {deleteTransaction} = useGlobalContext()
+    const {deleteTransaction, darkMode} = useGlobalContext()
       
     const actionColumn = [
         {
@@ -21,11 +21,13 @@ const DataTable = ({rows, columns}) => {
           },
         },
       ];
+
+const themeClass = darkMode ? classes.dark : classes.light;
   return (
-    <div className={classes.datatable}>
+    <div className={classes.datatable}  id={darkMode ? 'dark' : 'light'} >
       <DataGrid
-        
-        sx={{  height:'700px', color:'white' }}
+        // className={`${themeClass}`}
+        sx={{  height:'700px', color:'grey'}}
         rows={rows}
         columns={columns?.concat(actionColumn)}
         pageSize={10}

@@ -29,6 +29,7 @@ const validateTransactions=(label,arr, list)=>{
         }
         console.log(arr[i])
       }
+      console.log(arr,'arr')
       return arr
 }
 
