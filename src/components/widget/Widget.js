@@ -9,15 +9,15 @@ import { useGlobalContext } from '../../store/globalContext';
 import moment from "moment";
 
 const Widget = ({type}) => {
-    const {list, incomeList, expenseList} = useGlobalContext();
+    const {incomeList, expenseList} = useGlobalContext();
 
-    let date_create =moment().format("MM-DD-YYYY HH:mm:ss")
+    let date_create =moment().format("MM-DD-YYYY hh:mm A")
     let data;
     //totals
     let incomes = incomeList.map((income)=> income.amount)
-    console.log(incomes, 'incomes')
+   
     let totalIncome = incomes.reduce((acc, curr)=> acc + curr, 0);
-    console.log(totalIncome, 'totalIncome')
+ 
     let expenses = expenseList.map((expense)=> expense.amount)
     let totalExpense = expenses.reduce((acc, curr)=> acc + curr, 0);
   

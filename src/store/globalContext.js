@@ -49,7 +49,7 @@ export const GlobalProvider = ({ children }) => {
     axios
       .get(`${baseURL}/transactions/${userId}`)
       .then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
         setList(res.data);
        
       })
@@ -64,7 +64,7 @@ export const GlobalProvider = ({ children }) => {
     axios
       .post(`${baseURL}/transactions`, body)
       .then((res)=> {
-        console.log(res.data)
+        // console.log(res.data)
         toast.success('New transaction is added', {
             position: 'bottom-left'
         });

@@ -26,7 +26,7 @@ const useAxios = (url)=> {
     useEffect(()=> {
         fetchData();
         return ()=>cancelTokenSource.cancel();
-    }, []);
+    }, [url]);
 
     return {
         data, loading, error

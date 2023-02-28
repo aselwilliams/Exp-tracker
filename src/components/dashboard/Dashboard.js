@@ -31,12 +31,12 @@ const Dashboard = () => {
           <Chart />
           <Featured />
         </div>
-        <div className={classes.coins}>
-          <Carousel />
-        </div>
         <div className={classes.mixed}>
           <BarChart />
           <Calculator />
+        </div>
+        <div className={classes.coins}>
+          <Carousel />
         </div>
         <div className={classes.news}>
           <HackerNews />
