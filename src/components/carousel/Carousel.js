@@ -20,7 +20,7 @@ const Carousel = () => {
   function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
-
+  loading && <h3>Loading ...</h3>
   const items = data.map((coin) => {
     let profit = coin?.price_change_percentage_24h >= 0;
 

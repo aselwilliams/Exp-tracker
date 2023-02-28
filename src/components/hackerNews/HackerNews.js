@@ -1,31 +1,29 @@
-import { useState, useEffect } from "react";
+import { useState} from "react";
 import moment from 'moment';
 import classes from './HackerNews.module.css';
 import useAxios from '../hooks/useAxios'
 
 export default function FetchNews() {
-  const [news, setNews] = useState([])
   const [query, setQuery] = useState("chat gpt")
   const [text, setText] = useState("")
-  const [isLoading, setIsLoading] = useState(true) // loading state
+  const {data, loading, error}= useAxios(`https://hn.algolia.com/api/v1/search?query=${query}`);
 
-  useEffect(() => {
-    setIsLoading(true)
+  // useEffect(() => {
+  //   setIsLoading(true)
+  //   const fetchNews = async () => {
+  //     const url = `https://hn.algolia.com/api/v1/search?query=${query}`
+  //     const res = await fetch(url)
+  //     const data = await res.json()
+  //     // You can change the number of items you get back in your response using
+  //     // the `Array.length` method, as demonstrated below. Uncomment the line and
+  //     // reload your app to see it in action.
+  //     data.hits.length = 10
+  //     setNews(data.hits)
+  //   }
 
-    const fetchNews = async () => {
-      const url = `https://hn.algolia.com/api/v1/search?query=${query}`
-      const res = await fetch(url)
-      const data = await res.json()
-      // You can change the number of items you get back in your response using
-      // the `Array.length` method, as demonstrated below. Uncomment the line and
-      // reload your app to see it in action.
-      data.hits.length = 10
-      setNews(data.hits)
-    }
-
-    fetchNews()
-    setIsLoading(false)
-  }, [query])
+  //   fetchNews()
+  //   setIsLoading(false)
+  // }, [query])
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -39,12 +37,11 @@ export default function FetchNews() {
       console.log(query)
     }
   }
-
   return (
     <>
       <main className={classes.newsWrapper}>
         <h2 style={{letterSpacing: '0.1rem'}}>Hacker News</h2>
-        {isLoading ? (
+        {loading ? (
           <div className="spinner">Loading...</div>
         ) : (
           <>
@@ -80,7 +77,7 @@ export default function FetchNews() {
             </article>
 
             <section>
-              {news.map((item) => {
+              {data.hits.map((item) => {
                 const { author, created_at, objectID, title, url } = item
 
                 return (
