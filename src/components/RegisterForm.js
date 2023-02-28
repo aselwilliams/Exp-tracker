@@ -111,7 +111,7 @@ const RegisterForm = () => {
       <div className="form-wrapper">
         <main className="main-form">
           <h2 className="title">Create an Account</h2>
-          <form onSubmit={formik.handleSubmit}>
+          <form onSubmit={formik.handleSubmit} >
             <Box
               className="App"
               sx={{

@@ -5,11 +5,10 @@ import Navbar from "../navbar/Navbar";
 import { useGlobalContext } from "../../store/globalContext";
 import Form from "../form/Form";
 import DataTable from "../dataTable/DataTable";
-import { columns } from "../transactions/Transactions";
 import AddIcon from '@mui/icons-material/Add';
 
 const Income = () => {
-  const { list, showModal, setShowModal, incomeList, expenseList} = useGlobalContext();
+  const {showModal, setShowModal, incomeList, expenseList} = useGlobalContext();
 
   const columns = [
     { field: "id", headerName: "ID", width: 70 },

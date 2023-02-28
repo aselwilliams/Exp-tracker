@@ -35,8 +35,7 @@ const getLocalData = () => {
 }
 
 export const AuthContextProvider = (props) => {
-  const localData = getLocalData()
-  
+  const localData = getLocalData()  
 
   let initialToken
   if (localData) {
@@ -45,10 +44,6 @@ export const AuthContextProvider = (props) => {
 
   const [token, setToken] = useState(initialToken)
   const [userId, setUserId] = useState(null)
-//   const [firstName, setFirstName] = useState('')
-//   const [lastName, setLastName] = useState('')
-//   const [username, setUsername] = useState('')
-//   const [image, setImage] = useState('')
 
   const logout = useCallback(() => {
     setToken(null)
@@ -64,15 +59,10 @@ export const AuthContextProvider = (props) => {
     if(logoutTimer){
       console.log('logout')
       clearTimeout(logoutTimer)
-    }
-    
+    } 
   }, [])
 
   const login = (token, expTime, userId,firstName, lastName, username, image) => {
-    // setFirstName(firstName);
-    // setLastName(lastName);
-    // setUsername(username);
-    // setImage(image);
     setToken(token);
     setUserId(userId)
     localStorage.setItem('username', username)
@@ -100,10 +90,6 @@ export const AuthContextProvider = (props) => {
     login,
     logout, 
     userId,
-    // firstName,
-    // lastName, 
-    // username, 
-    // image
   }
 
   return (

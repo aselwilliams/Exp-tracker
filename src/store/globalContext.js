@@ -14,7 +14,6 @@ export const GlobalProvider = ({ children }) => {
   const [expenseList, setExpenseList] = useState([]);
   const [darkMode, setDarkMode] = useState(false);
   const [open, setOpen] = useState(false);
-  const[areaChart, setAreaChart] = useState([])
 
   useEffect(() => {
     const listCopy = list.map((el) => ({ ...el }));
@@ -28,34 +27,17 @@ export const GlobalProvider = ({ children }) => {
   const userId = localStorage.getItem("userId");
   const {token} = useContext(AuthContext)
 
-  useEffect(() => {
-    getAllTransactions();
-    toast.success('All transactions are loaded', {
-        position: 'bottom-left'
-    });
-  }, []);
-
-//   const getAreaChartData=()=> {
-//     axios
-//     .get(`${baseURL}/areachart`)
-//     .then((res)=> {
-//         console.log(res.data, 'AREA CHART')
-//         setAreaChart(res.data)
-//     }).catch((err)=> console.log(err))
-//   }
-
-
   const getAllTransactions = () => {
     axios
       .get(`${baseURL}/transactions/${userId}`)
       .then((res) => {
-        // console.log(res.data);
         setList(res.data);
-       
+        toast.success('All transactions are loaded', {
+          position: 'bottom-left'
+      });
       })
       .catch((err) => {
         console.log(err)
-        // setError(err.res.data.message);
       });
   };
 
@@ -64,7 +46,6 @@ export const GlobalProvider = ({ children }) => {
     axios
       .post(`${baseURL}/transactions`, body)
       .then((res)=> {
-        // console.log(res.data)
         toast.success('New transaction is added', {
             position: 'bottom-left'
         });
@@ -93,7 +74,7 @@ export const GlobalProvider = ({ children }) => {
 
   return (
     <GlobalContext.Provider
-      value={{ addTransaction, getAllTransactions, list, showModal, setShowModal, deleteTransaction, incomeList, expenseList, darkMode, setDarkMode, open, setOpen, areaChart}}
+      value={{ addTransaction, getAllTransactions, list, showModal, setShowModal, deleteTransaction, incomeList, expenseList, darkMode, setDarkMode, open, setOpen}}
     >
       {children}
     </GlobalContext.Provider>

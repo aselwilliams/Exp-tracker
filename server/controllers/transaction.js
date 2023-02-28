@@ -112,28 +112,13 @@ module.exports = {
 },
 getBarChartData: async (req, res) => {
     const { userId } = req.params;
-    let arr = [];
     try{
         sequelize.query(
-           `select sum(amount) as expense, t_date FROM "transactions" where t_date>=current_date at time zone 'UTC' - interval '6 days' and type='expense' and transactions."userId"=1 group by t_date order by t_date desc limit 7;
-           select sum(amount) as income, t_date FROM "transactions" where t_date>=current_date at time zone 'UTC' - interval '6 days' and type='income' and transactions."userId"=1 group by t_date order by t_date desc limit 7;` 
+           `select sum(amount) as expense, t_date FROM "transactions" where t_date>=current_date at time zone 'UTC' - interval '6 days' and type='expense' and transactions."userId"=${userId} group by t_date order by t_date desc limit 7;
+           select sum(amount) as income, t_date FROM "transactions" where t_date>=current_date at time zone 'UTC' - interval '6 days' and type='income' and transactions."userId"=${userId} group by t_date order by t_date desc limit 7;` 
         )
         .then((dbRes) => {
             console.log(dbRes[0],'barchart')
-            // for(let i=0; i<7; i++){
-            //     const dataObj={
-            //         name:dbRes[0][i].t_date,
-            //         income:+(dbRes[1][i]),
-            //         expense:+(dbRes[0][i].expense)
-            //     }  
-            //       const data2={
-            //         name:dbRes[1][1],
-            //         income:+(dbRes[1][1].income),
-            //         expense:+(dbRes[1][1].expense)
-            //     }
-            //      arr.push(dataObj)
-            //      arr.push(data2)
-            // }
              res.status(200).send(dbRes[0]) 
             })
     } catch(err) {

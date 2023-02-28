@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import classes from './Transactions.module.css';
 import Sidebar from '../sidebar/Sidebar';
 import Navbar from '../navbar/Navbar';
@@ -7,10 +7,8 @@ import { useGlobalContext } from '../../store/globalContext';
 import Header from '../Header';
 
 const Transactions = () => {
-  const { getAllTransactions, list } = useGlobalContext();
-  // useEffect(()=> {
-  //  getAllTransactions()
-  // },[])
+  const {  list } = useGlobalContext();
+ 
 const columns = [
   { field: "id", headerName: "ID", width: 70 },
   { field: "title", headerName: "Title", width: 150 },
