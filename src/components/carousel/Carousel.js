@@ -1,30 +1,27 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
 import AliceCarousel from "react-alice-carousel";
-import { Link } from "react-router-dom";
 import { TrendingCoins } from "../../config/api";
 import classes from './Carousel.module.css';
 import 'react-alice-carousel/lib/alice-carousel.css';
+import useAxios from '../../components/hooks/useAxios';
 
 const Carousel = () => {
-  const [trending, setTrending] = useState([]);
+  const {data, loading, error} = useAxios('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=gecko_desc&per_page=10&page=1&sparkline=false&price_change_percentage=24h') 
 
-  const fetchTrendingCoins = async () => {
-    const { data } = await axios.get(TrendingCoins('usd'));
+  // const fetchTrendingCoins = async () => {
+  //   const { data } = await axios.get(TrendingCoins('usd'));
+  //   setTrending(data);
+  // };
 
-    console.log(data);
-    setTrending(data);
-  };
-
-  useEffect(() => {
-    fetchTrendingCoins();
-  }, []);
+  // useEffect(() => {
+  //   fetchTrendingCoins();
+  // }, []);
 
   function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
 
-  const items = trending.map((coin) => {
+  const items = data.map((coin) => {
     let profit = coin?.price_change_percentage_24h >= 0;
 
     return (

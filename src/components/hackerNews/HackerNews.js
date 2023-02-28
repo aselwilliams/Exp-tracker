@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import moment from 'moment';
 import classes from './HackerNews.module.css';
+import useAxios from '../hooks/useAxios'
 
 export default function FetchNews() {
   const [news, setNews] = useState([])
