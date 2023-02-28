@@ -126,17 +126,14 @@ getBarChartData: async (req, res) => {
                     income:+(dbRes[1][i]),
                     expense:+(dbRes[0][i].expense)
                 }  
+                  const data2={
+                    name:dbRes[1][1],
+                    income:+(dbRes[1][1].income),
+                    expense:+(dbRes[1][1].expense)
+                }
                  arr.push(dataObj)
+                 arr.push(data2)
             }
-            for(let i=0; i<arr; i++){
-                arr[i].income=Number(dbRes[1][i].income)
-                // const data2={
-                //     name:dbRes[1][1],
-                //     income:+(dbRes[1][1].income),
-                //     expense:+(dbRes[1][1].expense)
-                // }
-            }
-            console.log(arr, 'arr after 2nd loop')
              res.status(200).send(arr) 
             })
     } catch(err) {

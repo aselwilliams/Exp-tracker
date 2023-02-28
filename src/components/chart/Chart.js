@@ -1,6 +1,5 @@
 import classes from "./Chart.module.css";
 import React,{useState, useEffect} from "react";
-import { useGlobalContext } from "../../store/globalContext";
 import {
   AreaChart,
   Area,
@@ -9,47 +8,11 @@ import {
   CartesianGrid,
   Tooltip,
 } from "recharts";
-// import validateTransactions from './index';
 import axios from 'axios'
 
-
-// const data = [
-//   { month: "January", income: 1300, expenses:2900 },
-//   { month: "February", income: 1800, expenses:600 },
-//   { month: "March", income: 2300, expenses:900 },
-//   { month: "April", income: 6300, expenses:2300 },
-//   { month: "May", income: 5800, expenses:3100 },
-//   { month: "June", income: 4900, expenses:2700 },
-//   { month: "July", income: 5500, expenses:1900 },
-//   { month: "August", income: 2300, expenses:900 },
-//   { month: "September", income: 3700, expenses:800 },
-//   { month: "October", income: 5600,expenses:2400 },
-//   { month: "November", income: 4400, expenses:1400 },
-//   { month: "December", income: 3900,expenses:1800 },
-// ];
-
-let obj={'1':'January',
-            '2':'Febuary',
-            '3':'March',
-            '4':'April',
-            '5':'May',
-            '6':'June',
-            '7':'July',
-            '8':'August',
-            '9':'September',
-            '10':'October',
-            '11':'November',
-            '12':'December',
-        }
-let arr = new Array(12).fill({month:'',income:0,expenses:0}).map((el,i)=>{
-    return {...el,
-      month:obj[i+1]
-    }
-  })
 const Chart = () => {
     const userId= localStorage.getItem('userId')
     const[areaChart, setAreaChart]= useState([])
-
 
     const getAreaChartData=()=> {
       axios
@@ -62,9 +25,7 @@ const Chart = () => {
    useEffect(()=> {
     getAreaChartData()
    },[])
-// validateTransactions('income',arr,incomeList)
-// validateTransactions('expenses',arr,expenseList)
- console.log(arr,'testData')
+   
   return (
     <div className={classes.chart}>
       <h3 className={classes.title}>Monthly total balance (last 12 months)</h3>

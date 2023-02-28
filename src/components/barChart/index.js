@@ -11,7 +11,7 @@ let daysObj = {
   
   let end = new Date().getDate() + 1
   let start = new Date().getDate() - 6
-  
+
   const generateBarChartData=(list, Arr, label)=>{
     for (let i = 0; i < Arr.length; i++) {
         let current_day = Arr[i].name
@@ -29,4 +29,12 @@ let daysObj = {
     console.log(Arr, end, start)
     
   }
+
+    // let Arr = new Array(7).fill({ name: '', income: 0, expense: 0}).map((el, i) => {
+    //     return {...el,
+    //        name:daysObj[i]
+    //      }
+    //  })
+    // generateBarChartData(expenseList, Arr,'expense')
+    // generateBarChartData(incomeList, Arr, 'income')
  export default generateBarChartData;

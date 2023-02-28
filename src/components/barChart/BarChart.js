@@ -1,27 +1,13 @@
 import React, {useState, useEffect} from 'react';
 import classes from './BarChart.module.css';
 import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
-import {useGlobalContext} from '../../store/globalContext';
-// import data from './data';
-import generateBarChartData from './index';
 import axios from 'axios';
+import moment from 'moment';
 
-
-let daysObj = {
-    '0': 'Sunday',
-    '1': 'Monday',
-    '2': 'Tuesday',
-    '3': 'Wednesday',
-    '4': 'Thursday',
-    '5': 'Friday',
-    '6': 'Saturday',
-  }
-  
 const BarChartOne = () => {
   const userId= localStorage.getItem('userId')
   const [barChart, setBarChart] = useState([])
-    const { incomeList, expenseList}= useGlobalContext();
-    
+
     const getBarChartData=()=> {
       axios
       .get(`http://localhost:4444/barchart/${userId}`)
@@ -34,21 +20,32 @@ const BarChartOne = () => {
     getBarChartData()
    },[])
 
+   let result=[]
+   let incomeArr=[]
+   const separateData=()=> {
+    for(let i=0; i<barChart.length; i++){
+      if(i%2!==0){
+        incomeArr.push(barChart[i])
+      } else {
+        result.push(barChart[i])
+      }
+    }
+    return incomeArr
+   }
+   separateData()
+   for(let i=0; i<result.length; i++){
+    result[i].income=incomeArr[i].name.rows[i].income
+    result[i].name= moment(result[i].name).format('DD MMM YYYY (ddd)');
+   }
+   console.log(result.reverse(), 'result')
 
-    let Arr = new Array(7).fill({ name: '', income: 0, expense: 0}).map((el, i) => {
-        return {...el,
-           name:daysObj[i]
-         }
-     })
-    // generateBarChartData(expenseList, Arr,'expense')
-    // generateBarChartData(incomeList, Arr, 'income')
   return (
     <div className={classes.barChart}>
         <h3 className={classes.title}>Transactions breakdown (last week)</h3>
          <BarChart
           width={800}
           height={350}
-          data={barChart}
+          data={result}
           margin={{
             top: 5,
             right: 30,
