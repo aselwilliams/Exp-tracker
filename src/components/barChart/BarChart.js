@@ -3,13 +3,11 @@ import classes from "./BarChart.module.css";
 import {
   BarChart,
   Bar,
-  Cell,
   XAxis,
   YAxis,
   CartesianGrid,
   Tooltip,
   Legend,
-  ResponsiveContainer,
 } from "recharts";
 import axios from "axios";
 import moment from "moment";
@@ -94,4 +92,4 @@ const BarChartOne = () => {
 };
 
 export default BarChartOne;
-// fill="rgba(255,0,165,0.6)"
+

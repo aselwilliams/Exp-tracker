@@ -16,9 +16,9 @@ The application consists of 3 layers: server, database and user interface. The t
 
 ### Screenshots
 <p float="left">
-    <img src="../assets/dashboard.png" width="30%" />
-    <img src="../assets/addtrans.png" width="30%" hspace="5%"/>
-    <img src="../assets/calendar.png" width="30%" hspace="5%"/>
+    <img src="/assets/dashboard.png" width="30%" />
+    <img src="/assets/addtrans.png" width="30%" hspace="5%"/>
+    <img src="/assets/calendar.png" width="30%" hspace="5%"/>
 </p>
 
 

@@ -17,13 +17,13 @@ import {registerSchema} from '../validations/UserValidation'
 const RegisterForm = () => {
   const [message, setMessage] = useState("");
   const [display, setDisplay] = useState("none");
-  const [user, setUser] = useState({
-    firstName: "",
-    lastName: "",
-    username: "",
-    password: "",
-    image: "",
-  });
+  // const [user, setUser] = useState({
+  //   firstName: "",
+  //   lastName: "",
+  //   username: "",
+  //   password: "",
+  //   image: "",
+  // });
   const navigate = useNavigate();
   const authCtx = useContext(AuthContext);
 

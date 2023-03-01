@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import classes from "./Income.module.css";
 import Sidebar from "../sidebar/Sidebar";
 import Navbar from "../navbar/Navbar";
