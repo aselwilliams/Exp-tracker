@@ -14,6 +14,7 @@ import {
 import axios from "axios";
 import moment from "moment";
 import { useGlobalContext } from "../../store/globalContext";
+import data from './data'
 
 const BarChartOne = () => {
   const userId = localStorage.getItem("userId");
@@ -56,7 +57,7 @@ const BarChartOne = () => {
         } 
         if(newArr[i].income){
             let found=resultArr.find((el)=> el.name===newArr[i].t_date)
-            found.income= newArr[i].income
+            found.income= newArr[i]?.income
             console.log(found,'found')
             console.log(resultArr, 'resultArr')
           console.log('hit!',newArr[i])
@@ -72,7 +73,7 @@ const BarChartOne = () => {
       <BarChart
         width={800}
         height={350}
-        data={result}
+        data={data}
         margin={{
           top: 5,
           right: 30,
