@@ -12,7 +12,7 @@ import {
 import axios from "axios";
 import moment from "moment";
 import { useGlobalContext } from "../../store/globalContext";
-import data from './data'
+import data from "./data";
 
 const BarChartOne = () => {
   const userId = localStorage.getItem("userId");
@@ -27,8 +27,8 @@ const BarChartOne = () => {
         console.log(res.data, "BAR CHART");
         setBarChart(res.data);
       })
-      .then(()=>{
-        makeDataArr()
+      .then(() => {
+        makeDataArr();
       })
       .catch((err) => console.log(err));
   };
@@ -37,41 +37,51 @@ const BarChartOne = () => {
   }, [list]);
 
   const makeDataArr = () => {
-    let resultArr=[]
-    if(barChart.length>0){
-      const newArr = barChart.map((el,arr)=>{
-        el.t_date=moment(el.t_date).format("DD-MMM-YY (ddd)")
-        return {...el}})
-      console.log(newArr, 'newArr')
+    let resultArr = [];
+    if (barChart.length > 0) {
+      const newArr = barChart.map((el, arr) => {
+        el.t_date = moment(el.t_date).format("DD-MMM-YY (ddd)");
+        return { ...el };
+      });
+      console.log(newArr, "newArr");
 
-      for(let i=0; i<newArr.length; i++){
-        if(newArr[i].expense){
+      for (let i = 0; i < newArr.length; i++) {
+        if (newArr[i].expense) {
           let obj = {
             name: newArr[i].t_date,
             income: null,
-            expense: +(newArr[i].expense),
+            expense: +newArr[i].expense,
           };
-        resultArr.push(obj)
-        } 
-        if(newArr[i].income){
-            let found=resultArr.find((el)=> el.name===newArr[i].t_date)
-            found.income= newArr[i]?.income
-            console.log(found,'found')
-            console.log(resultArr, 'resultArr')
-          console.log('hit!',newArr[i])
+          resultArr.push(obj);
+        }
+        if (newArr[i].income) {
+          let found = resultArr.find((el) => el.name === newArr[i].t_date);
+          if (found) {
+            found.income = newArr[i].income;
+          } else {
+            let obj = {
+              name: newArr[i].t_date,
+              income: newArr[i].income,
+              expense:null,
+            };
+            resultArr.push(obj);
+          }
+          console.log(found, "found");
+          console.log(resultArr, "resultArr");
+          console.log("hit!", newArr[i]);
         }
       }
-      setResult(resultArr.reverse())
+      setResult(resultArr.reverse());
     }
   };
-  
+
   return (
     <div className={classes.barChart}>
       <h3 className={classes.title}>Transactions breakdown (last week)</h3>
       <BarChart
         width={800}
         height={350}
-        data={data}
+        data={result}
         margin={{
           top: 5,
           right: 30,
@@ -92,4 +102,3 @@ const BarChartOne = () => {
 };
 
 export default BarChartOne;
-
